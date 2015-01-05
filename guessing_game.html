@@ -4,18 +4,22 @@
 
 	guess = prompt("How many episodes of The Office (US version) aired over the course of all 9 seasons?");
 	answer = 201;
+	var gameIsCompleted = false;
 
-	if(isNaN(guess) === true) {
-		message = "It looks like you didn't input a number. Refresh and try a number this time!";
-	} else if(guess == answer) {
-		message = "You're correct! I hope you've watched every episode! :)";
-	} else if(guess > answer) {
-		message = "That guess is too high, refresh and try again!";
-	} else {
-		message = "You guessed too low -- refresh and try again!";
-	};
+	while (!gameIsCompleted) {
+		if(isNaN(guess) === true) {
+			guess = prompt("It looks like you didn't input a number. Try a number this time!");
+		} else if(guess == answer) {
+			alert("You're correct! I hope you've watched every episode! :)");
+			gameIsCompleted=true;
+		} else if(guess > answer) {
+			guess = prompt("That guess is too high, try again!");
+		} else {
+			guess = prompt("You guessed too low -- try again!");
+		}
+	}
 
 
-	alert(message);
+	//alert(message);
 
 </script>
