@@ -1,25 +1,31 @@
 <script>
 	var guess,
-	answer;
+	answer,
+	count;
 
 	guess = prompt("How many episodes of The Office (US version) aired over the course of all 9 seasons?");
 	answer = 201;
+	count = 1;
 	var gameIsCompleted = false;
 
-	while (!gameIsCompleted) {
+	while ((!gameIsCompleted) && (count < 6)){
 		if(isNaN(guess) === true) {
 			guess = prompt("It looks like you didn't input a number. Try a number this time!");
+			count++;
 		} else if(guess == answer) {
 			alert("You're correct! I hope you've watched every episode! :)");
-			gameIsCompleted=true;
+			gameIsCompleted = true;
 		} else if(guess > answer) {
 			guess = prompt("That guess is too high, try again!");
+			count++;
 		} else {
 			guess = prompt("You guessed too low -- try again!");
+			count++;
 		}
-	}
+	};
 
-
-	//alert(message);
+	if((!gameIsCompleted) && (count >= 6) ){
+		alert("You have exceeded allowable guesses.  You idiot!")
+	};
 
 </script>
